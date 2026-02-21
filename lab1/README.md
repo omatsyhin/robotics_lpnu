@@ -7,7 +7,8 @@
 3. Add a differential drive controller
 4. Integrate a LiDAR sensor for environment sensing
 
----
+## Simulation Demo
+
 ![Robot Demo](../docs/gazebo-demo.png)
 
 ## Testing Your Robot
