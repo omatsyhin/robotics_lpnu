@@ -92,9 +92,9 @@
                         </box>
                     </geometry>
                     <material>
-                        <ambient>0.0 0.0 1.0 1</ambient>
-                        <diffuse>0.0 0.0 1.0 1</diffuse>
-                        <specular>0.0 0.0 1.0 1</specular>
+                        <ambient>0.42 0.42 0.42 1</ambient>
+                        <diffuse>0.42 0.42 0.42 1</diffuse>
+                        <specular>0.42 0.42 0.42 1</specular>
                     </material>
                 </visual>
                 <collision name='collision'>
@@ -134,9 +134,9 @@
                         </cylinder>
                     </geometry>
                     <material>
-                        <ambient>1.0 0.0 0.0 1</ambient>
-                        <diffuse>1.0 0.0 0.0 1</diffuse>
-                        <specular>1.0 0.0 0.0 1</specular>
+                        <ambient>0.161 0.161 0.161 1</ambient>
+                        <diffuse>0.161 0.161 0.161 1</diffuse>
+                        <specular>0.161 0.161 0.161 1</specular>
                     </material>
                 </visual>
                 <collision name='collision'>
@@ -171,9 +171,9 @@
                         </cylinder>
                     </geometry>
                     <material>
-                        <ambient>1.0 0.0 0.0 1</ambient>
-                        <diffuse>1.0 0.0 0.0 1</diffuse>
-                        <specular>1.0 0.0 0.0 1</specular>
+                        <ambient>0.161 0.161 0.161 1</ambient>
+                        <diffuse>0.161 0.161 0.161 1</diffuse>
+                        <specular>0.161 0.161 0.161 1</specular>
                     </material>
                 </visual>
                 <collision name='collision'>
@@ -208,9 +208,9 @@
                         </cylinder>
                     </geometry>
                     <material>
-                        <ambient>1.0 0.0 0.0 1</ambient>
-                        <diffuse>1.0 0.0 0.0 1</diffuse>
-                        <specular>1.0 0.0 0.0 1</specular>
+                        <ambient>0.161 0.161 0.161 1</ambient>
+                        <diffuse>0.161 0.161 0.161 1</diffuse>
+                        <specular>0.161 0.161 0.161 1</specular>
                     </material>
                 </visual>
                 <collision name='collision'>
@@ -245,9 +245,9 @@
                         </cylinder>
                     </geometry>
                     <material>
-                        <ambient>1.0 0.0 0.0 1</ambient>
-                        <diffuse>1.0 0.0 0.0 1</diffuse>
-                        <specular>1.0 0.0 0.0 1</specular>
+                        <ambient>0.161 0.161 0.161 1</ambient>
+                        <diffuse>0.161 0.161 0.161 1</diffuse>
+                        <specular>0.161 0.161 0.161 1</specular>
                     </material>
                 </visual>
                 <collision name='collision'>
