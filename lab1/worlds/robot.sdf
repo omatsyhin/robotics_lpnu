@@ -233,6 +233,62 @@
                     </geometry>
                 </collision>
             </link>
+            <joint name='left_rear_wheel_joint' type='revolute'>
+                <pose relative_to='left_rear_wheel' />
+                <parent>chassis</parent>
+                <child>left_rear_wheel</child>
+                <axis>
+                    <xyz expressed_in='__model__'>0 1 0</xyz> 
+                    <limit>
+                        <!-- negative infinity-->
+                        <lower>-1.79769e+308</lower>  
+                        <!-- positive infinity-->
+                        <upper>1.79769e+308</upper>    
+                    </limit>
+                </axis>
+            </joint>
+            <joint name='right_rear_wheel_joint' type='revolute'>
+                <pose relative_to='right_rear_wheel' />
+                <parent>chassis</parent>
+                <child>right_rear_wheel</child>
+                <axis>
+                    <xyz expressed_in='__model__'>0 1 0</xyz> 
+                    <limit>
+                        <!-- negative infinity-->
+                        <lower>-1.79769e+308</lower>  
+                        <!-- positive infinity-->
+                        <upper>1.79769e+308</upper>    
+                    </limit>
+                </axis>
+            </joint>
+            <joint name='left_front_wheel_joint' type='revolute'>
+                <pose relative_to='left_front_wheel' />
+                <parent>chassis</parent>
+                <child>left_front_wheel</child>
+                <axis>
+                    <xyz expressed_in='__model__'>0 1 0</xyz> 
+                    <limit>
+                        <!-- negative infinity-->
+                        <lower>-1.79769e+308</lower>  
+                        <!-- positive infinity-->
+                        <upper>1.79769e+308</upper>    
+                    </limit>
+                </axis>
+            </joint>
+            <joint name='right_front_wheel_joint' type='revolute'>
+                <pose relative_to='right_front_wheel' />
+                <parent>chassis</parent>
+                <child>right_front_wheel</child>
+                <axis>
+                    <xyz expressed_in='__model__'>0 1 0</xyz> 
+                    <limit>
+                        <!-- negative infinity-->
+                        <lower>-1.79769e+308</lower>  
+                        <!-- positive infinity-->
+                        <upper>1.79769e+308</upper>    
+                    </limit>
+                </axis>
+            </joint>
         </model>
     </world>
 </sdf>
