@@ -70,6 +70,8 @@
 
         <model name='vehicle_blue' canonical_link='chassis'>
             <pose relative_to='world'>0 0 0 0 0 0</pose>
+
+            <!-- Chassis-->
             <link name='chassis'>
                 <pose relative_to='__model__'>0.5 0 0.4 0 0 0</pose>
                 <inertial>
@@ -109,6 +111,8 @@
                     <topic>imu</topic>
                 </sensor>
             </link>
+
+            <!-- Left Rear Wheel-->
             <link name='left_rear_wheel'>
                 <pose relative_to='chassis'>-0.5 0.6 0 -1.5707 0 0</pose>
                 <inertial>
@@ -144,6 +148,8 @@
                     </geometry>
                 </collision>
             </link>
+
+            <!-- Right Rear Wheel-->
             <link name='right_rear_wheel'>
                 <pose relative_to='chassis'>-0.5 -0.6 0 -1.5707 0 0</pose>
                 <inertial>
@@ -179,6 +185,8 @@
                     </geometry>
                 </collision>
             </link>
+
+            <!-- Left Front Wheel-->
             <link name='left_front_wheel'>
                 <pose relative_to='chassis'>0.5 0.6 0 -1.5707 0 0</pose>
                 <inertial>
@@ -214,6 +222,8 @@
                     </geometry>
                 </collision>
             </link>
+
+            <!-- Right Front Wheel-->
             <link name='right_front_wheel'>
                 <pose relative_to='chassis'>0.5 -0.6 0 -1.5707 0 0</pose>
                 <inertial>
@@ -249,6 +259,8 @@
                     </geometry>
                 </collision>
             </link>
+
+            <!-- Left Rear Wheel Joint-->
             <joint name='left_rear_wheel_joint' type='revolute'>
                 <pose relative_to='left_rear_wheel' />
                 <parent>chassis</parent>
@@ -263,6 +275,8 @@
                     </limit>
                 </axis>
             </joint>
+
+            <!-- Right Rear Wheel Joint-->
             <joint name='right_rear_wheel_joint' type='revolute'>
                 <pose relative_to='right_rear_wheel' />
                 <parent>chassis</parent>
@@ -277,6 +291,8 @@
                     </limit>
                 </axis>
             </joint>
+
+            <!-- Left Front Wheel Joint-->
             <joint name='left_front_wheel_joint' type='revolute'>
                 <pose relative_to='left_front_wheel' />
                 <parent>chassis</parent>
@@ -291,6 +307,8 @@
                     </limit>
                 </axis>
             </joint>
+
+            <!-- RIght Front Wheel Joint-->
             <joint name='right_front_wheel_joint' type='revolute'>
                 <pose relative_to='right_front_wheel' />
                 <parent>chassis</parent>
@@ -305,6 +323,8 @@
                     </limit>
                 </axis>
             </joint>
+
+            <!-- Differential Drive Plugin-->
             <plugin filename="gz-sim-diff-drive-system"
                 name="gz::sim::systems::DiffDrive">
                 <left_joint>left_front_wheel_joint</left_joint>
@@ -316,6 +336,8 @@
                 <odom_publish_frequency>1</odom_publish_frequency>
                 <topic>cmd_vel</topic>
             </plugin>
+
+            <!-- Lidar-->
             <link name='lidar_link'>
                 <pose relative_to='chassis'>0.8 0 0.5 0 0 0</pose>
                 <inertial>
@@ -355,12 +377,14 @@
                 </sensor>
             </link>
 
+            <!-- Lidar Joint-->
             <joint name='lidar_joint' type='fixed'>
                 <parent>chassis</parent>
                 <child>lidar_link</child>
             </joint>
         </model>
 
+        <!-- Wall-->
         <model name='wall'>
             <static>true</static>
             <pose>5 0 0 0 0 0</pose>
@@ -398,7 +422,7 @@
                 <enabled>true</enabled>
             </plugin>
         </model>
-        
+
         <!-- Box -->
         <model name='box'>
             <static>true</static>
