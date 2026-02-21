@@ -238,12 +238,12 @@
                 <parent>chassis</parent>
                 <child>left_rear_wheel</child>
                 <axis>
-                    <xyz expressed_in='__model__'>0 1 0</xyz> 
+                    <xyz expressed_in='__model__'>0 1 0</xyz>
                     <limit>
                         <!-- negative infinity-->
-                        <lower>-1.79769e+308</lower>  
+                        <lower>-1.79769e+308</lower>
                         <!-- positive infinity-->
-                        <upper>1.79769e+308</upper>    
+                        <upper>1.79769e+308</upper>
                     </limit>
                 </axis>
             </joint>
@@ -252,12 +252,12 @@
                 <parent>chassis</parent>
                 <child>right_rear_wheel</child>
                 <axis>
-                    <xyz expressed_in='__model__'>0 1 0</xyz> 
+                    <xyz expressed_in='__model__'>0 1 0</xyz>
                     <limit>
                         <!-- negative infinity-->
-                        <lower>-1.79769e+308</lower>  
+                        <lower>-1.79769e+308</lower>
                         <!-- positive infinity-->
-                        <upper>1.79769e+308</upper>    
+                        <upper>1.79769e+308</upper>
                     </limit>
                 </axis>
             </joint>
@@ -266,12 +266,12 @@
                 <parent>chassis</parent>
                 <child>left_front_wheel</child>
                 <axis>
-                    <xyz expressed_in='__model__'>0 1 0</xyz> 
+                    <xyz expressed_in='__model__'>0 1 0</xyz>
                     <limit>
                         <!-- negative infinity-->
-                        <lower>-1.79769e+308</lower>  
+                        <lower>-1.79769e+308</lower>
                         <!-- positive infinity-->
-                        <upper>1.79769e+308</upper>    
+                        <upper>1.79769e+308</upper>
                     </limit>
                 </axis>
             </joint>
@@ -280,15 +280,70 @@
                 <parent>chassis</parent>
                 <child>right_front_wheel</child>
                 <axis>
-                    <xyz expressed_in='__model__'>0 1 0</xyz> 
+                    <xyz expressed_in='__model__'>0 1 0</xyz>
                     <limit>
                         <!-- negative infinity-->
-                        <lower>-1.79769e+308</lower>  
+                        <lower>-1.79769e+308</lower>
                         <!-- positive infinity-->
-                        <upper>1.79769e+308</upper>    
+                        <upper>1.79769e+308</upper>
                     </limit>
                 </axis>
             </joint>
+            <plugin filename="gz-sim-diff-drive-system"
+                name="gz::sim::systems::DiffDrive">
+                <left_joint>left_front_wheel_joint</left_joint>
+                <left_joint>left_rear_wheel_joint</left_joint>
+                <right_joint>right_front_wheel_joint</right_joint>
+                <right_joint>right_rear_wheel_joint</right_joint>
+                <wheel_separation>1.2</wheel_separation>
+                <wheel_radius>0.4</wheel_radius>
+                <odom_publish_frequency>1</odom_publish_frequency>
+                <topic>cmd_vel</topic>
+            </plugin>
         </model>
+        
+        <!-- Moving Forward-->
+        <plugin filename="gz-sim-triggered-publisher-system"
+            name="gz::sim::systems::TriggeredPublisher">
+            <input type="gz.msgs.Int32" topic="/keyboard/keypress">
+                <match field="data">16777235</match>
+            </input>
+            <output type="gz.msgs.Twist" topic="/cmd_vel">
+                linear: {x: 0.5}, angular: {z: 0.0}
+            </output>
+        </plugin>
+
+        <!-- Moving Backward-->
+        <plugin filename="gz-sim-triggered-publisher-system"
+            name="gz::sim::systems::TriggeredPublisher">
+            <input type="gz.msgs.Int32" topic="/keyboard/keypress">
+                <match field="data">16777237</match>
+            </input>
+            <output type="gz.msgs.Twist" topic="/cmd_vel">
+                linear: {x: -0.5}, angular: {z: 0.0}
+            </output>
+        </plugin>
+
+        <!-- Moving Left-->
+        <plugin filename="gz-sim-triggered-publisher-system"
+            name="gz::sim::systems::TriggeredPublisher">
+            <input type="gz.msgs.Int32" topic="/keyboard/keypress">
+                <match field="data">16777234</match>
+            </input>
+            <output type="gz.msgs.Twist" topic="/cmd_vel">
+                linear: {x: 0.0}, angular: {z: 0.5}
+            </output>
+        </plugin>
+
+        <!-- Moving Right-->
+        <plugin filename="gz-sim-triggered-publisher-system"
+            name="gz::sim::systems::TriggeredPublisher">
+            <input type="gz.msgs.Int32" topic="/keyboard/keypress">
+                <match field="data">16777236</match>
+            </input>
+            <output type="gz.msgs.Twist" topic="/cmd_vel">
+                linear: {x: 0.0}, angular: {z: -0.5}
+            </output>
+        </plugin>
     </world>
 </sdf>
