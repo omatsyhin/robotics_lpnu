@@ -398,6 +398,86 @@
                 <enabled>true</enabled>
             </plugin>
         </model>
+        
+        <!-- Box -->
+        <model name='box'>
+            <static>true</static>
+            <pose>3 3 0.5 0 0 0</pose>
+            <link name='box'>
+                <visual name='visual'>
+                    <geometry>
+                        <box>
+                            <size>2 2 2</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <ambient>0.7 0.5 0.9 1</ambient>
+                        <diffuse>0.7 0.5 0.9 1</diffuse>
+                        <specular>0.7 0.5 0.9 1</specular>
+                    </material>
+                </visual>
+                <collision name='collision'>
+                    <geometry>
+                        <box>
+                            <size>2 2 2</size>
+                        </box>
+                    </geometry>
+                </collision>
+                <sensor name='sensor_contact' type='contact'>
+                    <contact>
+                        <collision>collision</collision>
+                    </contact>
+                </sensor>
+            </link>
+            <plugin filename="gz-sim-touchplugin-system"
+                name="gz::sim::systems::TouchPlugin">
+                <target>vehicle_blue</target>
+                <namespace>wall</namespace>
+                <time>0.001</time>
+                <enabled>true</enabled>
+            </plugin>
+        </model>
+
+        <!-- Barrel -->
+        <model name='barrel'>
+            <static>true</static>
+            <pose>3 -2 1 0 0 0</pose>
+            <link name='box'>
+                <visual name='visual'>
+                    <geometry>
+                        <cylinder>
+                            <radius>0.7</radius>
+                            <length>2</length>
+                        </cylinder>
+                    </geometry>
+                    <material>
+                        <ambient>0.2 0.5 0.9 1</ambient>
+                        <diffuse>0.2 0.5 0.9 1</diffuse>
+                        <specular>0.2 0.5 0.9 1</specular>
+                    </material>
+                </visual>
+                <collision name='collision'>
+                    <geometry>
+                        <cylinder>
+                            <radius>0.7</radius>
+                            <length>2</length>
+                        </cylinder>
+                    </geometry>
+                </collision>
+                <sensor name='sensor_contact' type='contact'>
+                    <contact>
+                        <collision>collision</collision>
+                    </contact>
+                </sensor>
+            </link>
+            <plugin filename="gz-sim-touchplugin-system"
+                name="gz::sim::systems::TouchPlugin">
+                <target>vehicle_blue</target>
+                <namespace>wall</namespace>
+                <time>0.001</time>
+                <enabled>true</enabled>
+            </plugin>
+        </model>
 
         <!-- Moving Forward-->
         <plugin filename="gz-sim-triggered-publisher-system"
