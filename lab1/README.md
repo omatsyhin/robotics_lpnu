@@ -8,7 +8,7 @@
 4. Integrate a LiDAR sensor for environment sensing
 
 ---
-![Robot Demo](../docs/reference_demo.gif)
+![Robot Demo](../docs/gazebo-demo.mp4)
 
 ## Testing Your Robot
 
