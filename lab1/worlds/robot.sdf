@@ -21,6 +21,9 @@
             name="gz::sim::systems::Sensors">
             <render_engine>ogre2</render_engine>
         </plugin>
+        <plugin filename="gz-sim-imu-system"
+            name="gz::sim::systems::Imu">
+        </plugin>
 
         <light type="directional" name="sun">
             <cast_shadows>true</cast_shadows>
@@ -96,6 +99,12 @@
                         </box>
                     </geometry>
                 </collision>
+                <sensor name="imu_sensor" type="imu">
+                    <always_on>1</always_on>
+                    <update_rate>1</update_rate>
+                    <visualize>true</visualize>
+                    <topic>imu</topic>
+                </sensor>
             </link>
             <link name='left_rear_wheel'>
                 <pose relative_to='chassis'>-0.5 0.6 0 -1.5707 0 0</pose>
