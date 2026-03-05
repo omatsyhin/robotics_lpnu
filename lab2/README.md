@@ -22,7 +22,7 @@ A simple ROS2 Python package showcasing the capabilities of Robot Operating Syst
 # You should already be at /opt/ws when you enter the container
 
 # Build the package
-colcon build --package-select lab2
+colcon build --packages-select lab2
 
 # Source the workspace (makes the package visible)
 source install/setup.bash
