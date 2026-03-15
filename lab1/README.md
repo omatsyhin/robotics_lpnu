@@ -1,13 +1,18 @@
 # Lab 1: Building Your Robot in Gazebo
 
-## Learning Goals
+## Description
 
-1. Understand SDF format and structure
-2. Create a four-wheeled mobile robot
-3. Add a differential drive controller
-4. Integrate a LiDAR sensor for environment sensing
+A simple SDF world file that contains:
+- 4-wheel differential drive robot that has:
+    - IMU sensor
+    - LiDAR sensor
+    - KeyPublisher plugin support (for controlling the robot with arrow keys)
+- Three types of obstacles with contact sensors:
+    - Wall
+    - Barrel
+    - Box
 
-## Simulation Demo
+## Screenshot from Simulation
 
 ![Robot Demo](../docs/gazebo-demo.png)
 
