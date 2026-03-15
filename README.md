@@ -1,8 +1,6 @@
 # Robotics Introduction Labs
 
-Hands-on labs for learning ROS2 and robotics simulation with Gazebo.
-
----
+Completed tasks for labs that are part of Intro to Robotics subject in Lviv Polytechnic National University. If you want to complete the tasks from scratch you can access [the original repo](https://github.com/RybOlya/robotics_lpnu).
 
 ## Prerequisites
 
@@ -13,12 +11,11 @@ Hands-on labs for learning ROS2 and robotics simulation with Gazebo.
 
 **Don't have Ubuntu 24.04?** See the [Installation Guide](docs/INSTALLATION_GUIDE.md) for setup instructions.
 
----
 ### 1. Clone Repository
 
 ```bash
 cd ~
-git clone https://github.com/RybOlya/robotics_lpnu.git
+git clone https://github.com/omatsyhin/robotics_lpnu.git
 cd robotics_lpnu
 ```
 
@@ -48,14 +45,14 @@ code .
 # In a new terminal window
 ./scripts/cmd bash
 ```
----
 
 ## Labs
 
 | Lab | Topic | 
 |-----|-------|
-| **[Lab 1](lab1/README.md)** | Building a Robot in Gazebo | 2 sessions | Follow Gazebo tutorials to build a mobile robot with sensors |
-| **[Lab 2](lab2/README.md)** | ROS2 Integration | 2 sessions | Create ROS2 nodes, control the robot, visualize sensor data |
+| **[Lab 1](lab1/README.md)** | Building a Robot in Gazebo |
+| **[Lab 2](lab2/README.md)** | ROS2 Integration |
+| **[Lab 3](lab3/README.md)** | Moving Mobile Robots in Simulation |
 
 ### Development Workflow
 
@@ -100,31 +97,6 @@ rm -rf ./build ./install ./log
 
 **Note:** After cleaning, you must rebuild with `colcon build` before running any ROS2 commands.
 
----
-
-## Repository Structure
-
-```
-robotics_lpnu/
-├── lab1/                          # Lab 1: Building a Robot in Gazebo
-│   ├── worlds/robot.sdf          # Robot world file
-│   └── README.md                  # Lab 1 instructions
-├── lab2/                          # Lab 2: ROS2 Integration
-│   ├── lab2/                      # Python nodes (you create)
-│   ├── launch/                    # Launch files (you create)
-│   ├── config/robot.rviz         # RViz configuration
-│   └── README.md                  # Lab 2 instructions
-├── docs/                          
-│   └── INSTALLATION_GUIDE.md      # OS setup guide
-├── docker/                        
-│   ├── Dockerfile                 # ROS2 + Gazebo image
-│   └── entrypoint.bash           
-└── scripts/                       
-    └── cmd                        # Docker helper script
-```
-
----
-
 ## Troubleshooting
 
 ### Docker permission denied
@@ -159,8 +131,6 @@ source /opt/ws/install/setup.bash
 exit
 ./scripts/cmd run
 ```
-
----
 
 ## Resources
 
