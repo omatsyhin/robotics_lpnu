@@ -12,9 +12,9 @@ class SquarePath(Node):
     def __init__(self):
         super().__init__('square_path')
 
-        self.declare_parameter('side_length', 2.0)
-        self.declare_parameter('linear_speed', 0.4)
-        self.declare_parameter('angular_speed', 0.8)
+        self.declare_parameter('side_length', 2.5)
+        self.declare_parameter('linear_speed', 1.0)
+        self.declare_parameter('angular_speed', 0.1)
         self.declare_parameter('odom_topic', '/model/vehicle_blue/odometry')
 
         odom_topic = self.get_parameter('odom_topic').value
