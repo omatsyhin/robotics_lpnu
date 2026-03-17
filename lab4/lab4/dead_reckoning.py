@@ -1,9 +1,7 @@
-"""Dead reckoning - STUDENT TASK.
-
-Integrate /cmd_vel to estimate pose; compare with Gazebo ground truth (/odom).
-
-Reference: https://www.roboticsbook.org/S52_diffdrive_actions.html
 """
+Integrate /cmd_vel to estimate pose.
+"""
+
 import math
 
 import rclpy
@@ -33,17 +31,77 @@ class DeadReckoningNode(Node):
         self.create_subscription(Odometry, gt_topic, self.gt_callback, 10)
         self.pub_path = self.create_publisher(Path, path_topic, 10)
 
-        # TODO: add state variables (pose, time, ground truth)
+        # State variables 
+        self.x = 0.0
+        self.y = 0.0
+        self.theta = 0.0
+
+        self.prev_time = None
+
+        # Ground truth 
+        self.gt_x = None
+        self.gt_y = None
+        self.gt_theta = None
+
         self.path_msg = Path()
         self.path_msg.header.frame_id = self.frame_id
 
     def cmd_callback(self, msg: TwistStamped):
-        # TODO: integrate v, w to update pose; publish path
-        pass
+        current_time = self.get_clock().now().nanoseconds * 1e-9
+
+        if self.prev_time is None:
+            self.prev_time = current_time
+            return
+
+        dt = current_time - self.prev_time
+        self.prev_time = current_time
+
+        # Extract velocities
+        v = msg.twist.linear.x
+        w = msg.twist.angular.z
+
+        # Dead reckoning integration 
+        self.x += v * math.cos(self.theta) * dt
+        self.y += v * math.sin(self.theta) * dt
+        self.theta += w * dt
+
+        # Normalize theta 
+        self.theta = math.atan2(math.sin(self.theta), math.cos(self.theta))
+
+        # Publish path 
+        pose = PoseStamped()
+        pose.header.stamp = msg.header.stamp
+        pose.header.frame_id = self.frame_id
+
+        pose.pose.position.x = self.x
+        pose.pose.position.y = self.y
+
+        # Convert yaw to quaternion
+        qz = math.sin(self.theta / 2.0)
+        qw = math.cos(self.theta / 2.0)
+
+        pose.pose.orientation.z = qz
+        pose.pose.orientation.w = qw
+
+        self.path_msg.header.stamp = msg.header.stamp
+        self.path_msg.poses.append(pose)
+
+        # Limit path length
+        if len(self.path_msg.poses) > self.max_poses:
+            self.path_msg.poses.pop(0)
+
+        self.pub_path.publish(self.path_msg)
 
     def gt_callback(self, msg: Odometry):
-        # TODO: store ground truth for comparison
-        pass
+        # Store ground truth pose 
+        self.gt_x = msg.pose.pose.position.x
+        self.gt_y = msg.pose.pose.position.y
+
+        q = msg.pose.pose.orientation
+        # yaw extraction from quaternion
+        siny_cosp = 2.0 * (q.w * q.z + q.x * q.y)
+        cosy_cosp = 1.0 - 2.0 * (q.y * q.y + q.z * q.z)
+        self.gt_theta = math.atan2(siny_cosp, cosy_cosp)
 
 
 def main(args=None):
