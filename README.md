@@ -53,6 +53,7 @@ code .
 | **[Lab 1](lab1/README.md)** | Building a Robot in Gazebo |
 | **[Lab 2](lab2/README.md)** | ROS2 Integration |
 | **[Lab 3](lab3/README.md)** | Moving Mobile Robots in Simulation |
+| **[Lab 4](lab4/README.md)** | Dead Reckoning |
 
 ### Development Workflow
 
