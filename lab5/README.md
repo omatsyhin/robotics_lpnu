@@ -165,3 +165,6 @@ class ObstacleAvoidanceNode(Node):
         self.goal_y = self.declare_parameter("goal_y", -1.0).value
         # ...
 ```
+
+## Example Screenshot
+![TurtleBot3 Avoiding Obstacles](../docs/obstacle-avoidance-screenshot.png)
