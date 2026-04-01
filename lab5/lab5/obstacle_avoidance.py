@@ -111,7 +111,7 @@ class ObstacleAvoidanceNode(Node):
 
             angle += self.scan_data.angle_increment
 
-        # Transform from robot frame → world frame
+        # Transform from robot frame to world frame
         cos_yaw = math.cos(self.robot_yaw)
         sin_yaw = math.sin(self.robot_yaw)
 
@@ -165,7 +165,7 @@ class ObstacleAvoidanceNode(Node):
         # Publish command
         self.cmd_pub.publish(msg)
 
-        # Debug logs (optional)
+        # Debug logs 
         self.get_logger().debug(f"Robot: ({self.robot_x:.2f}, {self.robot_y:.2f}), "
                                 f"Goal: ({self.goal_x:.2f}, {self.goal_y:.2f}), "
                                 f"Heading error: {math.degrees(angle_error):.1f} deg, "
