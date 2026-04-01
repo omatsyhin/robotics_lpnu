@@ -1,6 +1,6 @@
 # Robotics Introduction Labs
 
-Completed tasks for labs that are part of Intro to Robotics subject in Lviv Polytechnic National University. If you want to complete the tasks from scratch you can access [the original repo](https://github.com/RybOlya/robotics_lpnu).
+The completed tasks for the labs that are part of the Intro to Robotics subject at Lviv Polytechnic National University. If you want to complete the tasks from scratch, you can visit[the original repo](https://github.com/RybOlya/robotics_lpnu).
 
 ## Prerequisites
 
@@ -54,6 +54,7 @@ code .
 | **[Lab 2](lab2/README.md)** | ROS2 Integration |
 | **[Lab 3](lab3/README.md)** | Moving Mobile Robots in Simulation |
 | **[Lab 4](lab4/README.md)** | Dead Reckoning |
+| **[Lab 5](lab5/README.md)** | Obstacle Avoidance |
 
 ### Development Workflow
 
