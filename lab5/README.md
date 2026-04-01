@@ -4,8 +4,10 @@
 
 A ROS2 node which implements Artifial Potential Fields method for obstacle avoidance.
 
+---
 ### Overview of the Algorithm
 ---
+
 **The Artificial Potential Fields (APF)** algorithm is a reactive motion planning method used for mobile robots to navigate toward a goal while avoiding obstacles. The core idea is to treat the robot as a particle influenced by virtual forces:
 - **Attractive forces** pull the robot toward the goal.
 - **Repulsive forces** push the robot away from obstacles.
@@ -21,6 +23,7 @@ Workflow of the algorithm:
 6. Convert the total force into desired heading and linear speed.
 7. Publish commands using a `TwistStamped` message.
 
+---
 ### Key formulas
 ---
 #### Attractive Force towards the Goal
@@ -124,8 +127,10 @@ lin_speed = self.max_linear * (1 - abs(angle_error) / math.pi)
 msg.twist.linear.x = max(min_lin_speed, min(self.max_linear, lin_speed))
 ```
 
+---
 ### Pros and Cons of APF
 ---
+
 #### Advantages:
 - Requires minimal processing; suitable for real-time control on embedded platforms.
 - Responds immediately to dynamic obstacles without global path planning.
