@@ -55,6 +55,8 @@ code .
 | **[Lab 3](lab3/README.md)** | Moving Mobile Robots in Simulation |
 | **[Lab 4](lab4/README.md)** | Dead Reckoning |
 | **[Lab 5](lab5/README.md)** | Obstacle Avoidance |
+| **[Lab 6](lab6/README.md)** | Motion Planning (Nav2) |
+| **[Lab 7](lab7/README.md)** | RTR Manipulator |
 
 ### Development Workflow
 
